@@ -1,5 +1,7 @@
 package com.keep.easy;
 
+import java.util.Arrays;
+
 /**
  * 1.旋转字符串：abcdef 旋转成 cdefab
  * 题目：左旋转字符串
@@ -18,7 +20,7 @@ public class 旋转字符 {
         // 将字符串拆分为字符数组
         char[] targetChar = targetStr.toCharArray();
         // 建立临时变量存储指定位置之前的数据
-        char[] tempCharBefore = new char[targetChar.length ];
+        char[] tempCharBefore = new char[index];
         char[] tempCharAfter = new char[targetChar.length - index];
         int j = 0;
         for (int i = 0; i < targetChar.length; i++) {
@@ -41,8 +43,19 @@ public class 旋转字符 {
         System.out.println("将指定的位置：" + index + " 之前的数据旋转到后面的结果为：" + String.valueOf(targetChar));
     }
 
-    public static void main(String[] arg){
+    public static void moveStr2(String targetStr, int index) {
+        // 将字符串拆分为字符数组
+        String[] targetChar = {targetStr.substring(0, index), targetStr.substring(index)};
+        StringBuilder afterChar = new StringBuilder();
+        for (int i = 0; i < targetChar.length; i++) {
+            afterChar.append(targetChar[targetChar.length - 1 - i]);
+        }
+        System.out.println("将指定的位置：" + index + " 之前的数据旋转到后面的结果为：" + afterChar.toString());
+    }
+
+    public static void main(String[] arg) {
         moveStr(6);
+        moveStr2("a phone I have ", 8);
     }
 
 }
