@@ -8,6 +8,7 @@ public class 求abn {
     // a+(a+b)-(a+2b)+(a+3b)-(a+4b)...+(a+nb)
     // (a+0b)+(a+1b)  -  (a+2b)+(a+3b)  -  (a+4b)+(a+5b) -  ...  (a+(n-1)b)+(a+nb)
     // 2a+1b  -  2a+5b   -  2a+9b - ... -  2a+[(n-1)+n]b
+    // 2a + （1b-5b-9d-...[(n-1)+n]b）
     // 1+1+1-1+2+1+3
     static int a = 1;
     static int b = 1;
@@ -52,10 +53,21 @@ public class 求abn {
         return processStr.toString();
     }
 
+    public static int getCountC(int n) {
+        int sum = a;
+        int flag = 1;
+        for (int i = 1; i <= n; i++) {
+            sum += (a + i * b) * flag;
+            flag *= -1;
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
         int result = getCount(3);
         // 1+(1*1+1)+(1*2+1)-(1*3+1)=4
         System.out.println(getProcessStr() + "=" + result);
+        System.out.println(getProcessStr()  + "=" + getCountC(3));
     }
 
 }
