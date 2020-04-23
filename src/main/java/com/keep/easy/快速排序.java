@@ -3,8 +3,11 @@ package com.keep.easy;
 import java.util.Arrays;
 
 /**
- * 快速排序是一种 不稳定 的排序算法，
+ * 快速排序是一种
+ * <p>
+ * 不稳定 的排序算法，
  * 平均时间复杂度为 O(nlogn)。
+ * <p>
  * 快速排序使 用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列 （sub-lists）。
  * <p>
  * 步骤为：
