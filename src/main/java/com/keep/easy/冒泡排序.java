@@ -20,6 +20,11 @@ import java.util.Arrays;
  *  持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要 比较。
  */
 public class 冒泡排序 {
+    public static void main(String[] args) {
+        int[] array = new int[]{5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8};
+        System.out.println("原始数据：" + Arrays.toString(array));
+        bubbleSort(array);
+    }
 
     public static void bubbleSort(int[] array) {
 
@@ -36,9 +41,4 @@ public class 冒泡排序 {
         }
     }
 
-    public static void main(String[] args) {
-        int[] array = new int[]{5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8};
-        System.out.println("原始数据：" + Arrays.toString(array));
-        bubbleSort(array);
-    }
 }

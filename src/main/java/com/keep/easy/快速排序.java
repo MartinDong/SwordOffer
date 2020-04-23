@@ -22,6 +22,21 @@ import java.util.Arrays;
  */
 public class 快速排序 {
 
+    public static void main(String[] args) {
+        int[] array = new int[]{5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8};
+        System.out.println("原始数据：" + Arrays.toString(array));
+
+        int len = array.length - 1;
+        quickSort(array, 0, len);
+    }
+
+    /**
+     * 快排的优化
+     * 1. 当待排序序列的长度分割到一定大小后，使用插入排序。
+     * 2. 快排函数在函数尾部有两次递归操作，我们可以对其使用尾递归优化。
+     * 优 化后，可以缩减堆栈深度，由原来的 O(n)缩减为 O(logn)，将会提高性能。
+     * 3. 从左、中、右三个数中取中间值
+     */
     public static int[] quickSort(int[] array, int start, int end) {
         // 基准
         int pivot = array[start];
@@ -65,19 +80,4 @@ public class 快速排序 {
     }
 
 
-    /**
-     * 快排的优化
-     * 1. 当待排序序列的长度分割到一定大小后，使用插入排序。
-     * 2. 快排函数在函数尾部有两次递归操作，我们可以对其使用尾递归优化。
-     * 优 化后，可以缩减堆栈深度，由原来的 O(n)缩减为 O(logn)，将会提高性能。
-     * 3. 从左、中、右三个数中取中间值
-     */
-
-    public static void main(String[] args) {
-        int[] array = new int[]{5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8};
-        System.out.println("原始数据：" + Arrays.toString(array));
-
-        int len = array.length - 1;
-        quickSort(array, 0, len);
-    }
 }
