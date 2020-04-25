@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class 计数排序 {
 
     public static void main(String[] args) {
-        int[] array = new int[]{22, 18, 21, 15, 27, 16, 23, 10, 24, 10, 13,12, 11, 14, 16, 19, 10, 21, 22};
+        int[] array = new int[]{22, 18, 21, 15, 27, 16, 23, 10, 24, 10, 13, 12, 11, 14, 16, 19, 10, 21, 22};
         System.out.println("原始数据：" + Arrays.toString(array));
         System.out.println("排序结果：" + Arrays.toString(countSort(array)));
     }
@@ -31,8 +31,9 @@ public class 计数排序 {
         }
         System.out.println("排序计数：" + Arrays.toString(count));
 
-        // 输出每个位置应该对应的数字
+        // 输出每个位置应该对应的数字，这里因为初始化count的时候是按照最大的数字初始化的容量，所以每个位置数据记录的都是这个位置的数据含有的个数
         for (int i = 0, j = 0; i < count.length; i++) {
+            // 依次取出，如果当前位置记录的数据大于0表示含有这个数据，循环的记录到result中，此时的i代表的就是这个数据，while循环多少次就是含有几个
             while (count[i]-- > 0) {
                 result[j++] = i;
             }
