@@ -13,7 +13,7 @@ import java.util.Arrays;
  * <p>
  * 直接计算数据在集合中的存在的个数，然后直接写在另一个集合中
  */
-public class 计数排序 {
+public class 计数排序_不稳定版 {
 
     public static void main(String[] args) {
         int[] array = new int[]{22, 18, 21, 15, 27, 16, 23, 10, 24, 10, 13, 12, 11, 14, 16, 19, 10, 21, 22};
