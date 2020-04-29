@@ -27,7 +27,8 @@ public class ZTreePrint60 {
         if (root == null) {
             return res;
         }
-        // 使用队列进行存储
+        // 使用队列进行存储，这里使用队列可以做到添加到队列后取出的时候从队列移除，
+        // 后面再次添加的时候保证队列中的数据可进入下一次循环
         Queue<TreeNode> queue = new LinkedList<>();
         // 存储头节点
         queue.add(root);
@@ -76,26 +77,33 @@ public class ZTreePrint60 {
      * @param root
      * @return
      */
-    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+    public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         helper(res, root, 0);
         return res;
-
     }
 
-    private void helper(List<List<Integer>> res, TreeNode root, int depth) {
+    private static void helper(List<List<Integer>> res, TreeNode root, int depth) {
+        // 判断跟节点是否有数据
         if (root == null) {
             return;
         }
+        // 判断结果的res列表的长度是否与深度相等
         if (res.size() == depth) {
+            // 相等的时候创建空集合
             res.add(new LinkedList<>());
         }
+        // 深度是2的倍数的时候将值添加到对应的深度的列表中
         if (depth % 2 == 0) {
             res.get(depth).add(root.val);
-        } else {
+        }
+        // 深度不是2的倍数的时候将值添加到对应的深度的列表的头部
+        else {
             res.get(depth).add(0, root.val);
         }
+        // 先遍历左节点，深度+1
         helper(res, root.left, depth + 1);
+        // 在遍历右边节点，深度+1
         helper(res, root.right, depth + 1);
     }
 }
