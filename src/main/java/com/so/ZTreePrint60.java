@@ -10,6 +10,12 @@ import java.util.Queue;
 /**
  * 第60题
  * 之字形打印二叉树
+ * <p>
+ * 第一行按照从左到右的顺序打印，
+ * 第二层按照从右至左的顺序打印，
+ * 第三行按照从左到右的顺序打印，其他行以此类推。
+ *
+ * 奇数行从左到右打印，偶数行从右到左打印。
  *
  * @author qgl
  * @date 2017/08/30
@@ -44,11 +50,11 @@ public class ZTreePrint60 {
             for (int i = 0; i < size; i++) {
                 // 取出队列的数据
                 TreeNode node = queue.poll();
-                // 判断循环深度是否是2的整倍数，如果是，tmp记录节点的值
+                // 如果是偶数行："右边-->左边"
                 if (depth % 2 == 0) {
                     tmp.add(node.val);
                 }
-                // 如果不是2的整倍数，添加到列表头部
+                // 如果是奇数行："左边-->右边"
                 else {
                     tmp.addFirst(node.val);
                 }
@@ -93,11 +99,11 @@ public class ZTreePrint60 {
             // 相等的时候创建空集合
             res.add(new LinkedList<>());
         }
-        // 深度是2的倍数的时候将值添加到对应的深度的列表中
+        // 如果是偶数行："右边-->左边"
         if (depth % 2 == 0) {
             res.get(depth).add(root.val);
         }
-        // 深度不是2的倍数的时候将值添加到对应的深度的列表的头部
+        // 如果是奇数行："左边-->右边"
         else {
             res.get(depth).add(0, root.val);
         }
