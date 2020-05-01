@@ -29,5 +29,6 @@ public class Test60 {
         node2.right = node6;
 
         System.out.println("之字形打印二叉树：" + ZTreePrint60.Print(root));
+        System.out.println("之字形打印二叉树：" + ZTreePrint60.zigzagLevelOrder(root));
     }
 }
