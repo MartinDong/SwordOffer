@@ -52,7 +52,7 @@ public class 快速排序 {
      * ③不断重复①和②,知道low>=high时(其实是low=high),
      * * low或high的位置就是该基准数据在数组中的正确索引位置.
      */
-    public static int[] quickSort2(int[] array, int low, int high) {
+    public static void quickSort2(int[] array, int low, int high) {
         if (low < high) {
             // 找寻基准数据的正确索引
             int index = getIndex(array, low, high);
@@ -62,7 +62,6 @@ public class 快速排序 {
             // 基准值之后的数据
             quickSort2(array, index + 1, high);
         }
-        return array;
     }
 
 
