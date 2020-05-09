@@ -25,9 +25,9 @@ public class 归并排序 {
 
     public static void main(String[] args) {
         int[] array = new int[]{5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8};
-        System.out.println("quickSort原始数据：" + Arrays.toString(array));
+        System.out.println("原始数据：" + Arrays.toString(array));
         mergeSort(array);
-        System.out.println("quickSort排序结果：" + Arrays.toString(array));
+        System.out.println("排序结果：" + Arrays.toString(array));
     }
 
     private static void mergeSort(int[] array) {
@@ -36,6 +36,7 @@ public class 归并排序 {
         sort(array, 0, array.length - 1, temp);
     }
 
+    // 排序：分
     private static void sort(int[] array, int left, int right, int[] temp) {
         if (left < right) {
             // 根据传入的左右边界计算中间值
@@ -49,7 +50,7 @@ public class 归并排序 {
         }
     }
 
-    // 合并
+    // 合并：治
     private static void merge(int[] arr, int left, int mid, int right, int[] temp) {
         // 左序列指针
         int i = left;
